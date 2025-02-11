@@ -9,76 +9,77 @@ def get_openmetrics(lines):
     metrics = {}
     for line in lines:
         if line.startswith("#"):
-            # Format comments (metadata)
-            if match := re.match(r'^#\s*HELP\s+(?P<metric>\w+)\s*(?P<help>.*)$', line):
-                metric = match.group('metric')
-                help = match.group('help')
-                if metric and help:
-                    metrics[metric] = {'help': help}
-                else:
-                    eprint(f'Error in line: {line}')
-            else:
-                pass # ignore the type info for now
-        else:
-            # A metric value
-            if match := re.match(r'^\s*(?P<metric>\w+)(?P<labels>{.*})*\s+(?P<val>\w+)', line):
-                metric = match.group('metric')
-                val = match.group('val')
-                if metric not in metrics:
-                    metrics[metric] = {} # ensure it's defined
-                if labels := match.group('labels'):
-                    labs = parse_metric_labels(labels)
-                    if labs:
-                        metrics[metric]['labels'] = labs
+            # Group HELP, TYPE, UNIT information together for each metric
+            for field in ['help', 'type', 'unit']:
+                keyword = field.upper()
+                if match := re.match(fr'^#\s*{keyword}\s+(?P<metric>\w+)\s*(?P<keyword>.*)$', line):
+                    metric = match.group('metric')
+                    if not metric in metrics:
+                        metrics[metric] = {}
+                    key_match = match.group('keyword')
+                    if metric and key_match:
+                        metrics[metric][field] = key_match
                     else:
-                        eprint(f'Labels not recognized in: {line}')
-            else:
-                    eprint(f'Error in line: {line}')
+                        eprint(f'Error in line: {line}')
+        else:
+            # Look for labels in metric values
+            if match := re.match(r'(?P<metric>\w+){(?P<labels>.*)}\s+(?P<value>.*)', line):
+                metric = match.group('metric')
+                labels = match.group('labels')
+                if not metric in metrics:
+                    metrics[metric] = {}
+                if labels:
+                    metrics[metric]['labels'] = parse_metric_labels(labels)
     return metrics
 
 
-def parse_metric_labels(metric):
-    match = re.search(r"\{([^{}]+)\}", metric)
-    if match:
-        labels = match.group(1)  # Extract content inside {}
-        return dict(item.split("=") for item in labels.split(","))
-    return {}
+# Return as simple comma-separated list of labels
+def parse_metric_labels(labels):
+    label_names = []
+    for label in labels.split(","):
+        key, _ = label.split("=")
+        label_names.append(key.strip())
+    return ",".join(label_names)
 
-
-# How these labels should appear in the help text
-label_map = {
-    'priority': ('priorities', 'priorities[]'),
-    'threadid': None, # Ignored in help text?
-    'id': None, # Ignored in help text?
-    'serverid': ('servers', 'servers[]'),
-}
 
 # Format for Halon help table in cli.rst
-def format_help(key, value):
-    # Strip off the halon_ prefix
-    halon_prefix = 'halon_'
-    if key.startswith(halon_prefix):
-        key = key.removeprefix(halon_prefix)
-        helptext = value['help']
+def format_help(metric, metric_field_len, attribute, attribute_list, attribute_names_length):
+    res = f'{metric:{metric_field_len}} '
+    for a_name in attribute_list:  # Build attributes in specific order
+        a_value = attribute.get(a_name, '')
+        res += f'{a_value:{attribute_names_length[a_name]}} '
+    return res
 
-        # Fix up any specific labels into the format used in the help text
-        if 'labels' in value:
-            for l in value['labels']:
-                if l in label_map:
-                    if replace := label_map[l]:
-                        key = key.replace(replace[0], replace[1])
-                else:
-                    eprint(f'Unknown label {l}')
-        # Underscore separators become periods
-        key = key.replace('_', '.')
-        return(f'{key:43}{helptext}')
-    else:
-        eprint(f'Key did not start with {halon_prefix}: {key}')
-
-
+# Dump metrics in a pretty format suitable for .RST docs
 def dump_metrics(metrics):
-    for key, value in sorted(metrics.items()):
-        print(format_help(key, value))
+    # pre-calculate the length of the longest string for each attribute
+    attribute_names_length = {}
+    attribute_list = ['help', 'type', 'unit', 'labels']
+    table_heading = {
+        'metric': 'Name',
+        'help': 'Description',
+        'type': 'Type',
+        'unit': 'Unit',
+        'labels': 'Labels'
+    }
+    for a in attribute_list:
+        attribute_names_length[a] = len(a) # initial values
+    # pre-calculate the length of the longest metric name
+    metric_field_len = 0
+    for metric, attribute in metrics.items():
+        metric_field_len = max(metric_field_len, len(metric))
+        for key, value in attribute.items():
+            if key in attribute_names_length:
+                attribute_names_length[key] = max(attribute_names_length[key], len(value))
+    # Header rows
+    header_rows = {key: '=' * length for key, length in attribute_names_length.items()}
+    header_rows['metric'] = '=' * metric_field_len
+    print(format_help(header_rows['metric'], metric_field_len, header_rows, attribute_list, attribute_names_length))
+    print(format_help(table_heading['metric'], metric_field_len, table_heading, attribute_list, attribute_names_length))
+    print(format_help(header_rows['metric'], metric_field_len, header_rows, attribute_list, attribute_names_length))
+    # dump the metrics
+    for metric, attribute in sorted(metrics.items()):
+        print(format_help(metric, metric_field_len, attribute, attribute_list, attribute_names_length))
 
 
 def main():

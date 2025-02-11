@@ -1,0 +1,529 @@
+# TYPE halon_process_pid gauge
+# HELP halon_process_pid Process PID
+halon_process_pid 2707920
+# TYPE halon_process_runtime counter
+# UNIT halon_process_runtime seconds
+# HELP halon_process_runtime Process runtime
+halon_process_runtime 319059.566543996
+# TYPE halon_process_version_major counter
+# HELP halon_process_version_major Major version
+halon_process_version_major 6
+# TYPE halon_process_version_minor counter
+# HELP halon_process_version_minor Minor version
+halon_process_version_minor 5
+# TYPE halon_process_version_patch counter
+# HELP halon_process_version_patch Patch version
+halon_process_version_patch 5
+# TYPE halon_process_license_expiration counter
+# UNIT halon_process_license_expiration seconds
+# HELP halon_process_license_expiration License expiration
+halon_process_license_expiration 1743551999
+# TYPE halon_resolver_pending gauge
+# HELP halon_resolver_pending Number of pending DNS queries
+halon_resolver_pending 0
+# TYPE halon_resolver_dedup gauge
+# HELP halon_resolver_dedup Number of duplicate pending DNS queries
+halon_resolver_dedup 0
+# TYPE halon_resolver_running gauge
+# HELP halon_resolver_running Number of running DNS queries
+halon_resolver_running 0
+# TYPE halon_resolver_maxrunning counter
+# HELP halon_resolver_maxrunning Configured maximum number of running DNS queries
+halon_resolver_maxrunning 100
+# TYPE halon_resolver_cache_maxsize counter
+# HELP halon_resolver_cache_maxsize Configured maximum number of entries in the DNS query cache
+halon_resolver_cache_maxsize 10000
+# TYPE halon_resolver_cache_size gauge
+# HELP halon_resolver_cache_size Number of entries in the DNS query cache
+halon_resolver_cache_size 261
+# TYPE halon_resolver_cache_hits counter
+# HELP halon_resolver_cache_hits Number of DNS query cache hits
+halon_resolver_cache_hits 3605
+# TYPE halon_resolver_cache_misses counter
+# HELP halon_resolver_cache_misses Number of DNS query cache misses
+halon_resolver_cache_misses 23747
+# TYPE halon_resolver_cache_expires counter
+# HELP halon_resolver_cache_expires Number of entries expired from the DNS query cache, due to TTL
+halon_resolver_cache_expires 23469
+# TYPE halon_resolver_cache_evicts counter
+# HELP halon_resolver_cache_evicts Number of entries expired from the DNS query cache, due to cache size
+halon_resolver_cache_evicts 0
+# TYPE halon_resolver_cache_skips counter
+# HELP halon_resolver_cache_skips Number of entries not added to the DNS query cached (eg. bad responses)
+halon_resolver_cache_skips 0
+# TYPE halon_resolver_domain_cache_maxsize counter
+# HELP halon_resolver_domain_cache_maxsize Configured maximum number of entries in the domain cache
+halon_resolver_domain_cache_maxsize 10000
+# TYPE halon_resolver_domain_cache_size gauge
+# HELP halon_resolver_domain_cache_size Number of entries in the domain cache
+halon_resolver_domain_cache_size 65
+# TYPE halon_resolver_domain_cache_hits counter
+# HELP halon_resolver_domain_cache_hits Number of domain cache hits
+halon_resolver_domain_cache_hits 2037948
+# TYPE halon_resolver_domain_cache_misses counter
+# HELP halon_resolver_domain_cache_misses Number of domain cache misses
+halon_resolver_domain_cache_misses 6128
+# TYPE halon_resolver_domain_cache_expires counter
+# HELP halon_resolver_domain_cache_expires Number of entries expired from the domain cache, due to TTL
+halon_resolver_domain_cache_expires 5858
+# TYPE halon_resolver_domain_cache_evicts counter
+# HELP halon_resolver_domain_cache_evicts Number of entries evicted from the domain cache, due to cache size
+halon_resolver_domain_cache_evicts 0
+# TYPE halon_servers_connections_concurrent gauge
+# HELP halon_servers_connections_concurrent Number of open connections
+halon_servers_connections_concurrent{serverid="bounces"} 0
+# TYPE halon_servers_connections_maxconcurrent counter
+# HELP halon_servers_connections_maxconcurrent Configured maximum number of open connections
+halon_servers_connections_maxconcurrent{serverid="bounces"} 1000
+# TYPE halon_servers_scripts_connect_pending gauge
+# HELP halon_servers_scripts_connect_pending Number of pending script executions (connect)
+halon_servers_scripts_connect_pending{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_connect_running gauge
+# HELP halon_servers_scripts_connect_running Number of running script executions (connect)
+halon_servers_scripts_connect_running{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_connect_finished counter
+# HELP halon_servers_scripts_connect_finished Number of finished script executions (connect)
+halon_servers_scripts_connect_finished{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_connect_errors counter
+# HELP halon_servers_scripts_connect_errors Number of erroneous script executions (connect)
+halon_servers_scripts_connect_errors{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_connect_threads gauge
+# HELP halon_servers_scripts_connect_threads Number of threads utilized for script executions (connect)
+halon_servers_scripts_connect_threads{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_connect_suspended gauge
+# HELP halon_servers_scripts_connect_suspended Number of suspended script executions (connect)
+halon_servers_scripts_connect_suspended{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_proxy_pending gauge
+# HELP halon_servers_scripts_proxy_pending Number of pending script executions (proxy)
+halon_servers_scripts_proxy_pending{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_proxy_running gauge
+# HELP halon_servers_scripts_proxy_running Number of running script executions (proxy)
+halon_servers_scripts_proxy_running{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_proxy_finished counter
+# HELP halon_servers_scripts_proxy_finished Number of finished script executions (proxy)
+halon_servers_scripts_proxy_finished{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_proxy_errors counter
+# HELP halon_servers_scripts_proxy_errors Number of erroneous script executions (proxy)
+halon_servers_scripts_proxy_errors{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_proxy_threads gauge
+# HELP halon_servers_scripts_proxy_threads Number of threads utilized for script executions (proxy)
+halon_servers_scripts_proxy_threads{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_proxy_suspended gauge
+# HELP halon_servers_scripts_proxy_suspended Number of suspended script executions (proxy)
+halon_servers_scripts_proxy_suspended{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_helo_pending gauge
+# HELP halon_servers_scripts_helo_pending Number of pending script executions (HELO)
+halon_servers_scripts_helo_pending{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_helo_running gauge
+# HELP halon_servers_scripts_helo_running Number of running script executions (HELO)
+halon_servers_scripts_helo_running{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_helo_finished counter
+# HELP halon_servers_scripts_helo_finished Number of finished script executions (HELO)
+halon_servers_scripts_helo_finished{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_helo_errors counter
+# HELP halon_servers_scripts_helo_errors Number of erroneous script executions (HELO)
+halon_servers_scripts_helo_errors{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_helo_threads gauge
+# HELP halon_servers_scripts_helo_threads Number of threads utilized for script executions (HELO)
+halon_servers_scripts_helo_threads{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_helo_suspended gauge
+# HELP halon_servers_scripts_helo_suspended Number of suspended script executions (HELO)
+halon_servers_scripts_helo_suspended{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_auth_pending gauge
+# HELP halon_servers_scripts_auth_pending Number of pending script executions (AUTH)
+halon_servers_scripts_auth_pending{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_auth_running gauge
+# HELP halon_servers_scripts_auth_running Number of running script executions (AUTH)
+halon_servers_scripts_auth_running{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_auth_finished counter
+# HELP halon_servers_scripts_auth_finished Number of finished script executions (AUTH)
+halon_servers_scripts_auth_finished{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_auth_errors counter
+# HELP halon_servers_scripts_auth_errors Number of erroneous script executions (AUTH)
+halon_servers_scripts_auth_errors{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_auth_threads gauge
+# HELP halon_servers_scripts_auth_threads Number of threads utilized for script executions (AUTH)
+halon_servers_scripts_auth_threads{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_auth_suspended gauge
+# HELP halon_servers_scripts_auth_suspended Number of suspended script executions (AUTH)
+halon_servers_scripts_auth_suspended{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_mailfrom_pending gauge
+# HELP halon_servers_scripts_mailfrom_pending Number of pending script executions (MAILFROM)
+halon_servers_scripts_mailfrom_pending{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_mailfrom_running gauge
+# HELP halon_servers_scripts_mailfrom_running Number of running script executions (MAILFROM)
+halon_servers_scripts_mailfrom_running{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_mailfrom_finished counter
+# HELP halon_servers_scripts_mailfrom_finished Number of finished script executions (MAILFROM)
+halon_servers_scripts_mailfrom_finished{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_mailfrom_errors counter
+# HELP halon_servers_scripts_mailfrom_errors Number of erroneous script executions (MAILFROM)
+halon_servers_scripts_mailfrom_errors{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_mailfrom_threads gauge
+# HELP halon_servers_scripts_mailfrom_threads Number of threads utilized for script executions (MAILFROM)
+halon_servers_scripts_mailfrom_threads{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_mailfrom_suspended gauge
+# HELP halon_servers_scripts_mailfrom_suspended Number of suspended script executions (MAILFROM)
+halon_servers_scripts_mailfrom_suspended{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_rcptto_pending gauge
+# HELP halon_servers_scripts_rcptto_pending Number of pending script executions (RCPTTO)
+halon_servers_scripts_rcptto_pending{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_rcptto_running gauge
+# HELP halon_servers_scripts_rcptto_running Number of running script executions (RCPTTO)
+halon_servers_scripts_rcptto_running{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_rcptto_finished counter
+# HELP halon_servers_scripts_rcptto_finished Number of finished script executions (RCPTTO)
+halon_servers_scripts_rcptto_finished{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_rcptto_errors counter
+# HELP halon_servers_scripts_rcptto_errors Number of erroneous script executions (RCPTTO)
+halon_servers_scripts_rcptto_errors{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_rcptto_threads gauge
+# HELP halon_servers_scripts_rcptto_threads Number of threads utilized for script executions (RCPTTO)
+halon_servers_scripts_rcptto_threads{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_rcptto_suspended gauge
+# HELP halon_servers_scripts_rcptto_suspended Number of suspended script executions (RCPTTO)
+halon_servers_scripts_rcptto_suspended{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_eod_pending gauge
+# HELP halon_servers_scripts_eod_pending Number of pending script executions (EOD)
+halon_servers_scripts_eod_pending{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_eod_running gauge
+# HELP halon_servers_scripts_eod_running Number of running script executions (EOD)
+halon_servers_scripts_eod_running{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_eod_finished counter
+# HELP halon_servers_scripts_eod_finished Number of finished script executions (EOD)
+halon_servers_scripts_eod_finished{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_eod_errors counter
+# HELP halon_servers_scripts_eod_errors Number of erroneous script executions (EOD)
+halon_servers_scripts_eod_errors{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_eod_threads gauge
+# HELP halon_servers_scripts_eod_threads Number of threads utilized for script executions (EOD)
+halon_servers_scripts_eod_threads{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_eod_suspended gauge
+# HELP halon_servers_scripts_eod_suspended Number of suspended script executions (EOD)
+halon_servers_scripts_eod_suspended{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_disconnect_pending gauge
+# HELP halon_servers_scripts_disconnect_pending Number of pending script executions (disconnect)
+halon_servers_scripts_disconnect_pending{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_disconnect_running gauge
+# HELP halon_servers_scripts_disconnect_running Number of running script executions (disconnect)
+halon_servers_scripts_disconnect_running{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_disconnect_finished counter
+# HELP halon_servers_scripts_disconnect_finished Number of finished script executions (disconnect)
+halon_servers_scripts_disconnect_finished{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_disconnect_errors counter
+# HELP halon_servers_scripts_disconnect_errors Number of erroneous script executions (disconnect)
+halon_servers_scripts_disconnect_errors{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_disconnect_threads gauge
+# HELP halon_servers_scripts_disconnect_threads Number of threads utilized for script executions (disconnect)
+halon_servers_scripts_disconnect_threads{serverid="bounces",threadid="_bounces"} 0
+# TYPE halon_servers_scripts_disconnect_suspended gauge
+# HELP halon_servers_scripts_disconnect_suspended Number of suspended script executions (disconnect)
+halon_servers_scripts_disconnect_suspended{serverid="bounces",threadid="_bounces"} 0
+halon_servers_connections_concurrent{serverid="http"} 0
+halon_servers_connections_maxconcurrent{serverid="http"} 1000
+halon_servers_scripts_eod_pending{serverid="http",threadid="_http"} 0
+halon_servers_scripts_eod_running{serverid="http",threadid="_http"} 0
+halon_servers_scripts_eod_finished{serverid="http",threadid="_http"} 0
+halon_servers_scripts_eod_errors{serverid="http",threadid="_http"} 0
+halon_servers_scripts_eod_threads{serverid="http",threadid="_http"} 0
+halon_servers_scripts_eod_suspended{serverid="http",threadid="_http"} 0
+halon_servers_connections_concurrent{serverid="sink"} 4
+halon_servers_connections_maxconcurrent{serverid="sink"} 1000
+halon_servers_scripts_connect_pending{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_connect_running{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_connect_finished{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_connect_errors{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_connect_threads{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_connect_suspended{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_proxy_pending{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_proxy_running{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_proxy_finished{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_proxy_errors{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_proxy_threads{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_proxy_suspended{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_helo_pending{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_helo_running{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_helo_finished{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_helo_errors{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_helo_threads{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_helo_suspended{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_auth_pending{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_auth_running{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_auth_finished{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_auth_errors{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_auth_threads{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_auth_suspended{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_mailfrom_pending{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_mailfrom_running{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_mailfrom_finished{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_mailfrom_errors{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_mailfrom_threads{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_mailfrom_suspended{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_rcptto_pending{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_rcptto_running{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_rcptto_finished{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_rcptto_errors{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_rcptto_threads{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_rcptto_suspended{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_eod_pending{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_eod_running{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_eod_finished{serverid="sink",threadid="_sink"} 1839512
+halon_servers_scripts_eod_errors{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_eod_threads{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_eod_suspended{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_disconnect_pending{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_disconnect_running{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_disconnect_finished{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_disconnect_errors{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_disconnect_threads{serverid="sink",threadid="_sink"} 0
+halon_servers_scripts_disconnect_suspended{serverid="sink",threadid="_sink"} 0
+halon_servers_connections_concurrent{serverid="smtp"} 20
+halon_servers_connections_maxconcurrent{serverid="smtp"} 1000
+halon_servers_scripts_connect_pending{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_connect_running{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_connect_finished{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_connect_errors{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_connect_threads{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_connect_suspended{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_proxy_pending{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_proxy_running{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_proxy_finished{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_proxy_errors{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_proxy_threads{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_proxy_suspended{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_helo_pending{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_helo_running{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_helo_finished{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_helo_errors{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_helo_threads{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_helo_suspended{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_auth_pending{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_auth_running{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_auth_finished{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_auth_errors{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_auth_threads{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_auth_suspended{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_mailfrom_pending{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_mailfrom_running{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_mailfrom_finished{serverid="smtp",threadid="_smtp"} 1809708
+halon_servers_scripts_mailfrom_errors{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_mailfrom_threads{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_mailfrom_suspended{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_rcptto_pending{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_rcptto_running{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_rcptto_finished{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_rcptto_errors{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_rcptto_threads{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_rcptto_suspended{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_eod_pending{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_eod_running{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_eod_finished{serverid="smtp",threadid="_smtp"} 1809706
+halon_servers_scripts_eod_errors{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_eod_threads{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_eod_suspended{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_disconnect_pending{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_disconnect_running{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_disconnect_finished{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_disconnect_errors{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_disconnect_threads{serverid="smtp",threadid="_smtp"} 0
+halon_servers_scripts_disconnect_suspended{serverid="smtp",threadid="_smtp"} 0
+# TYPE halon_queue_loader_count counter
+# HELP halon_queue_loader_count Cumulative number of messages loaded into memory
+halon_queue_loader_count 1901018
+# TYPE halon_queue_loader_pending gauge
+# HELP halon_queue_loader_pending Number of pending messages to be loaded into memory
+halon_queue_loader_pending 0
+# TYPE halon_queue_loader_active gauge
+# HELP halon_queue_loader_active Number of messages loaded in memory
+halon_queue_loader_active 48004
+# TYPE halon_queue_loader_maxactive counter
+# HELP halon_queue_loader_maxactive Maximum number of messages loaded in memory
+halon_queue_loader_maxactive 0
+# TYPE halon_queue_scripts_predelivery_pending gauge
+# HELP halon_queue_scripts_predelivery_pending Number of pending script executions (predelivery)
+halon_queue_scripts_predelivery_pending{threadid="_queues"} 0
+# TYPE halon_queue_scripts_predelivery_running gauge
+# HELP halon_queue_scripts_predelivery_running Number of running script executions (predelivery)
+halon_queue_scripts_predelivery_running{threadid="_queues"} 0
+# TYPE halon_queue_scripts_predelivery_finished counter
+# HELP halon_queue_scripts_predelivery_finished Number of finished script executions (predelivery)
+halon_queue_scripts_predelivery_finished{threadid="_queues"} 2046203
+# TYPE halon_queue_scripts_predelivery_errors counter
+# HELP halon_queue_scripts_predelivery_errors Number of erroneous script executions (predelivery)
+halon_queue_scripts_predelivery_errors{threadid="_queues"} 0
+# TYPE halon_queue_scripts_predelivery_threads gauge
+# HELP halon_queue_scripts_predelivery_threads Number of threads utilized for script executions (predelivery)
+halon_queue_scripts_predelivery_threads{threadid="_queues"} 0
+# TYPE halon_queue_scripts_predelivery_suspended gauge
+# HELP halon_queue_scripts_predelivery_suspended Number of suspended script executions (predelivery)
+halon_queue_scripts_predelivery_suspended{threadid="_queues"} 0
+# TYPE halon_queue_scripts_postdelivery_pending gauge
+# HELP halon_queue_scripts_postdelivery_pending Number of pending script executions (postdelivery)
+halon_queue_scripts_postdelivery_pending{threadid="_queues"} 0
+# TYPE halon_queue_scripts_postdelivery_running gauge
+# HELP halon_queue_scripts_postdelivery_running Number of running script executions (postdelivery)
+halon_queue_scripts_postdelivery_running{threadid="_queues"} 0
+# TYPE halon_queue_scripts_postdelivery_finished counter
+# HELP halon_queue_scripts_postdelivery_finished Number of finished script executions (postdelivery)
+halon_queue_scripts_postdelivery_finished{threadid="_queues"} 1998742
+# TYPE halon_queue_scripts_postdelivery_errors counter
+# HELP halon_queue_scripts_postdelivery_errors Number of erroneous script executions (postdelivery)
+halon_queue_scripts_postdelivery_errors{threadid="_queues"} 0
+# TYPE halon_queue_scripts_postdelivery_threads gauge
+# HELP halon_queue_scripts_postdelivery_threads Number of threads utilized for script executions (postdelivery)
+halon_queue_scripts_postdelivery_threads{threadid="_queues"} 0
+# TYPE halon_queue_scripts_postdelivery_suspended gauge
+# HELP halon_queue_scripts_postdelivery_suspended Number of suspended script executions (postdelivery)
+halon_queue_scripts_postdelivery_suspended{threadid="_queues"} 0
+# TYPE halon_queue_queue_defer_size gauge
+# HELP halon_queue_queue_defer_size Number of messages in the deferred queue
+halon_queue_queue_defer_size 112
+# TYPE halon_queue_queue_active_size gauge
+# HELP halon_queue_queue_active_size Number of messages in the active queue
+halon_queue_queue_active_size 47461
+# TYPE halon_queue_queue_active_priorities_size gauge
+# HELP halon_queue_queue_active_priorities_size Number of messages in the active queue based on priorities
+halon_queue_queue_active_priorities_size{priority="0"} 47461
+halon_queue_queue_active_priorities_size{priority="1"} 0
+# TYPE halon_queue_freeze_hold_size gauge
+# HELP halon_queue_freeze_hold_size Number of messages in the hold queue
+halon_queue_freeze_hold_size 431
+# TYPE halon_queue_freeze_update_size gauge
+# HELP halon_queue_freeze_update_size Number of messages in the update queue
+halon_queue_freeze_update_size 0
+# TYPE halon_queue_freeze_update_pending gauge
+# HELP halon_queue_freeze_update_pending Number of pending messages to be added to the update queue
+halon_queue_freeze_update_pending 0
+# TYPE halon_queue_policy_concurrency_counters gauge
+# HELP halon_queue_policy_concurrency_counters Number of concurrency counters
+halon_queue_policy_concurrency_counters 0
+# TYPE halon_queue_policy_concurrency_suspends gauge
+# HELP halon_queue_policy_concurrency_suspends Number of suspended concurrency counters
+halon_queue_policy_concurrency_suspends 2
+# TYPE halon_queue_policy_rate_buckets gauge
+# HELP halon_queue_policy_rate_buckets Number of rate buckets active for the current queue
+halon_queue_policy_rate_buckets 7
+# TYPE halon_queue_policy_rate_suspends gauge
+# HELP halon_queue_policy_rate_suspends Number of suspended rate buckets
+halon_queue_policy_rate_suspends 6
+# TYPE halon_queue_policy_dynamic_suspends gauge
+# HELP halon_queue_policy_dynamic_suspends Number of dynamically added suspensions
+halon_queue_policy_dynamic_suspends 0
+# TYPE halon_queue_policy_dynamic_conditions gauge
+# HELP halon_queue_policy_dynamic_conditions Number of dynamically added policies
+halon_queue_policy_dynamic_conditions 3
+# TYPE halon_queue_policy_connectinterval_buckets gauge
+# HELP halon_queue_policy_connectinterval_buckets Number of connect interval buckets active for the current queue
+halon_queue_policy_connectinterval_buckets 0
+# TYPE halon_queue_policy_connectinterval_suspends gauge
+# HELP halon_queue_policy_connectinterval_suspends Number of suspended connect interval buckets
+halon_queue_policy_connectinterval_suspends 0
+# TYPE halon_queue_pickup_count counter
+# HELP halon_queue_pickup_count Number of messages picked up from the active queue
+halon_queue_pickup_count 1913574
+# TYPE halon_queue_pickup_skips counter
+# HELP halon_queue_pickup_skips Number of queue nodes skipped during message pickup
+halon_queue_pickup_skips 154991212
+# TYPE halon_queue_pickup_misses counter
+# HELP halon_queue_pickup_misses Number of times the queue was searched without any message to deliver
+halon_queue_pickup_misses 2521728
+# TYPE halon_queue_pickup_pending gauge
+# HELP halon_queue_pickup_pending Number of messages picked up from the queue pending for delivery
+halon_queue_pickup_pending 0
+# TYPE halon_queue_pickup_evals counter
+# HELP halon_queue_pickup_evals The suspend evaluations against the list of suspends
+halon_queue_pickup_evals 118521075
+# TYPE halon_queue_pickup_putback counter
+# HELP halon_queue_pickup_putback Number of times a picked up message was put back into the queue
+halon_queue_pickup_putback 22039
+# TYPE halon_queue_connections_concurrent gauge
+# HELP halon_queue_connections_concurrent Number of open connections
+halon_queue_connections_concurrent 0
+# TYPE halon_queue_connections_maxconcurrent counter
+# HELP halon_queue_connections_maxconcurrent Configured maximum number of open connections
+halon_queue_connections_maxconcurrent 10000
+# TYPE halon_queue_connections_pooling_size gauge
+# HELP halon_queue_connections_pooling_size Number of connections in the connection cache
+halon_queue_connections_pooling_size 4
+# TYPE halon_queue_connections_pooling_maxsize counter
+# HELP halon_queue_connections_pooling_maxsize Configured maximum number of connections in the connection cache
+halon_queue_connections_pooling_maxsize 1000
+# TYPE halon_queue_connections_pooling_hits counter
+# HELP halon_queue_connections_pooling_hits Number of connections reused in the connection cache
+halon_queue_connections_pooling_hits 1448497
+# TYPE halon_queue_connections_pooling_misses counter
+# HELP halon_queue_connections_pooling_misses Number of connections not found in the connection cache
+halon_queue_connections_pooling_misses 465077
+# TYPE halon_queue_connections_pooling_expires counter
+# HELP halon_queue_connections_pooling_expires Number of connections expired from the connection cache, due to TTL
+halon_queue_connections_pooling_expires 389840
+# TYPE halon_queue_connections_pooling_evicts counter
+# HELP halon_queue_connections_pooling_evicts Number of connections expired from the connection cache, due to size
+halon_queue_connections_pooling_evicts 0
+# TYPE halon_queue_connections_pooling_skips counter
+# HELP halon_queue_connections_pooling_skips Number of connections not added to the connection cache, due to being full
+halon_queue_connections_pooling_skips 0
+# TYPE halon_queue_quota_size gauge
+# HELP halon_queue_quota_size Number of quota counters
+halon_queue_quota_size 0
+# TYPE halon_queue_delivery_delivered counter
+# HELP halon_queue_delivery_delivered Number of messages successfully delivered
+halon_queue_delivery_delivered 1673699
+# TYPE halon_queue_delivery_delayed counter
+# HELP halon_queue_delivery_delayed Number of soft-failed delivery events
+halon_queue_delivery_delayed 145736
+# TYPE halon_queue_delivery_failed counter
+# HELP halon_queue_delivery_failed Number of hard-failed delivery events
+halon_queue_delivery_failed 72100
+# TYPE halon_queue_release_pending gauge
+# HELP halon_queue_release_pending Number of messages pending to be queued to run the post-delivery script
+halon_queue_release_pending 0
+# TYPE halon_threads_scripts_pending gauge
+# HELP halon_threads_scripts_pending Number of pending script executions
+halon_threads_scripts_pending{id="_bounces"} 0
+# TYPE halon_threads_scripts_rescheduled gauge
+# HELP halon_threads_scripts_rescheduled Number of rescheduled script executions
+halon_threads_scripts_rescheduled{id="_bounces"} 0
+# TYPE halon_threads_scripts_running gauge
+# HELP halon_threads_scripts_running Number of threads running scripts executions
+halon_threads_scripts_running{id="_bounces"} 0
+# TYPE halon_threads_scripts_maxrunning counter
+# HELP halon_threads_scripts_maxrunning Configured maximum number of threads that can run script executions
+halon_threads_scripts_maxrunning{id="_bounces"} 32
+# TYPE halon_threads_scripts_scripts gauge
+# HELP halon_threads_scripts_scripts Number of script executions to be started (M:N)
+halon_threads_scripts_scripts{id="_bounces"} 0
+# TYPE halon_threads_scripts_maxscripts counter
+# HELP halon_threads_scripts_maxscripts Configured maximum number of script executions started (M:N)
+halon_threads_scripts_maxscripts{id="_bounces"} 32
+halon_threads_scripts_pending{id="_http"} 0
+halon_threads_scripts_rescheduled{id="_http"} 0
+halon_threads_scripts_running{id="_http"} 0
+halon_threads_scripts_maxrunning{id="_http"} 32
+halon_threads_scripts_scripts{id="_http"} 0
+halon_threads_scripts_maxscripts{id="_http"} 32
+halon_threads_scripts_pending{id="_queues"} 0
+halon_threads_scripts_rescheduled{id="_queues"} 0
+halon_threads_scripts_running{id="_queues"} 0
+halon_threads_scripts_maxrunning{id="_queues"} 32
+halon_threads_scripts_scripts{id="_queues"} 0
+halon_threads_scripts_maxscripts{id="_queues"} 32
+halon_threads_scripts_pending{id="_sink"} 0
+halon_threads_scripts_rescheduled{id="_sink"} 0
+halon_threads_scripts_running{id="_sink"} 0
+halon_threads_scripts_maxrunning{id="_sink"} 32
+halon_threads_scripts_scripts{id="_sink"} 0
+halon_threads_scripts_maxscripts{id="_sink"} 32
+halon_threads_scripts_pending{id="_smtp"} 0
+halon_threads_scripts_rescheduled{id="_smtp"} 0
+halon_threads_scripts_running{id="_smtp"} 0
+halon_threads_scripts_maxrunning{id="_smtp"} 32
+halon_threads_scripts_scripts{id="_smtp"} 0
+halon_threads_scripts_maxscripts{id="_smtp"} 32
+# TYPE halon_cluster_connected gauge
+# HELP halon_cluster_connected The current connection status (true=1, false=0)
+halon_cluster_connected 1
+# TYPE halon_cluster_hosts gauge
+# HELP halon_cluster_hosts Number of peers in the cluster
+halon_cluster_hosts 3
+# END
