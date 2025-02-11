@@ -43,43 +43,45 @@ def parse_metric_labels(labels):
 
 
 # Format for Halon help table in cli.rst
-def format_help(metric, metric_field_len, attribute, attribute_list, attribute_names_length):
+def formatted_help(metric, metric_field_len, attribute, attribute_list, attribute_names_length):
     res = f'{metric:{metric_field_len}} '
     for a_name in attribute_list:  # Build attributes in specific order
         a_value = attribute.get(a_name, '')
         res += f'{a_value:{attribute_names_length[a_name]}} '
-    return res
+    return res.rstrip() # trim trailing spaces
 
 # Dump metrics in a pretty format suitable for .RST docs
 def dump_metrics(metrics):
-    # pre-calculate the length of the longest string for each attribute
-    attribute_names_length = {}
-    attribute_list = ['help', 'type', 'unit', 'labels']
-    table_heading = {
+    # pre-calculate the length of the longest string for each attribute, and set up published column headings
+    attributes_col_width = {}
+    attributes = ['help', 'type', 'unit', 'labels']
+    column_heading = {
         'metric': 'Name',
         'help': 'Description',
         'type': 'Type',
         'unit': 'Unit',
         'labels': 'Labels'
     }
-    for a in attribute_list:
-        attribute_names_length[a] = len(a) # initial values
-    # pre-calculate the length of the longest metric name
-    metric_field_len = 0
+    # pre-calculate the lengths for column formatting
+    for a in attributes:
+        attributes_col_width[a] = len(column_heading[a]) # Needs to be at least long enough for the column headings
+    metric_col_width = 0
     for metric, attribute in metrics.items():
-        metric_field_len = max(metric_field_len, len(metric))
+        metric_col_width = max(metric_col_width, len(metric))
         for key, value in attribute.items():
-            if key in attribute_names_length:
-                attribute_names_length[key] = max(attribute_names_length[key], len(value))
-    # Header rows
-    header_rows = {key: '=' * length for key, length in attribute_names_length.items()}
-    header_rows['metric'] = '=' * metric_field_len
-    print(format_help(header_rows['metric'], metric_field_len, header_rows, attribute_list, attribute_names_length))
-    print(format_help(table_heading['metric'], metric_field_len, table_heading, attribute_list, attribute_names_length))
-    print(format_help(header_rows['metric'], metric_field_len, header_rows, attribute_list, attribute_names_length))
+            if key in attributes_col_width:
+                attributes_col_width[key] = max(attributes_col_width[key], len(value))
+    # Show the table header rows
+    header_row_symbol = '='
+    header_rows = {key: header_row_symbol * length for key, length in attributes_col_width.items()}
+    header_rows['metric'] = header_row_symbol * metric_col_width
+    print(formatted_help(header_rows['metric'], metric_col_width, header_rows, attributes, attributes_col_width))
+    print(formatted_help(column_heading['metric'], metric_col_width, column_heading, attributes, attributes_col_width))
+    print(formatted_help(header_rows['metric'], metric_col_width, header_rows, attributes, attributes_col_width))
+
     # dump the metrics
     for metric, attribute in sorted(metrics.items()):
-        print(format_help(metric, metric_field_len, attribute, attribute_list, attribute_names_length))
+        print(formatted_help(metric, metric_col_width, attribute, attributes, attributes_col_width))
 
 
 def main():
