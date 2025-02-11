@@ -54,13 +54,14 @@ def formatted_help(metric, metric_field_len, attribute, attribute_list, attribut
 def dump_metrics(metrics):
     # pre-calculate the length of the longest string for each attribute, and set up published column headings
     attributes_col_width = {}
-    attributes = ['help', 'type', 'unit', 'labels']
+    attributes = ['help', 'type', 'unit', 'labels', 'reference']
     column_heading = {
         'metric': 'Name',
         'help': 'Description',
         'type': 'Type',
         'unit': 'Unit',
-        'labels': 'Labels'
+        'labels': 'Labels',
+        'reference': 'Reference'
     }
     # pre-calculate the lengths for column formatting
     for a in attributes:
@@ -84,6 +85,55 @@ def dump_metrics(metrics):
         print(formatted_help(metric, metric_col_width, attribute, attributes, attributes_col_width))
 
 
+# Decorate with documentation references. Update this as required
+decorate_refs = {
+'halon_process_pid':                       			'`smtpd`',
+'halon_process_runtime':                   			'`smtpd`',
+# 'halon_process_elapsed':                   			'`smtpd`', # Deprecated/not used?
+'halon_resolver_running':                  			':confval:`resolver.concurrency`',
+'halon_resolver_maxrunning':               			':confval:`resolver.concurrency`',
+'halon_resolver_cache_size':               			':confval:`resolver.cache.size`',
+'halon_resolver_cache_maxsize':            			':confval:`resolver.cache.size`',
+'halon_resolver_cache_expires':            			':confval:`resolver.cache.ttl.min`',
+'halon_servers_connections_concurrent':    			':confval:`servers[].concurrency.total`',
+# 'halon_servers_serverid':                  			':confval:`servers[]`',
+'halon_servers_connections_maxconcurrent': 			':confval:`servers[].concurrency.total`',
+'halon_servers_scripts_connect_pending':   			':confval:`servers[].phases.connect.hook`',
+'halon_servers_scripts_connect_running':   			':confval:`servers[].threads.script`',
+'halon_queue_loader_count':                			':doc:`queue <queue>`',
+'halon_queue_loader_maxactive':            			':confval:`queues.maxmessages`',
+'halon_queue_scripts_predelivery_pending': 			':confval:`scripting.hooks.predelivery`',
+'halon_queue_scripts_predelivery_running': 			':confval:`queues.threads.script`',
+'halon_queue_queue_defer_size':            			':doc:`queue <queue>`',
+'halon_queue_queue_active_size':           			':doc:`queue <queue>`',
+'halon_queue_queue_active_priorities_size':			':doc:`queue <queue>`',
+'halon_queue_freeze_update_size':          			':ref:`frozen for update <halonctl-queue-freeze>`',
+'halon_queue_freeze_update_pending':       			':ref:`frozen for update <halonctl-queue-freeze>`',
+'halon_queue_policy_concurrency_counters': 			':ref:`active queue policies <queue_policy>`',
+'halon_queue_policy_concurrency_suspends': 			':ref:`Suspensions <queue_suspend>` created as a result of exceeded concurrency',
+'halon_queue_policy_rate_buckets':         			':ref:`active queue policies <queue_policy>`',
+'halon_queue_policy_rate_suspends':        			':ref:`Suspensions <queue_suspend>` created as a result of exceeded rate',
+'halon_queue_policy_dynamic_suspends':     			'script_',
+'halon_queue_policy_dynamic_conditions':   			'script_',
+'halon_queue_connections_concurrent':      			':confval:`queues.concurrency.total`',
+'halon_queue_connections_maxconcurrent':   			':confval:`queues.concurrency.total`',
+'halon_queue_connections_pooling_size':    			':confval:`queues.pooling.size`',
+'halon_queue_connections_pooling_maxsize': 			':confval:`queues.pooling.size`',
+'halon_queue_connections_pooling_expires': 			':ref:`idle timeout <queue_delivery>`',
+'halon_queue_connections_pooling_skips':   			':ref:`non-evictable <queue_delivery>`',
+}
+
+def add_references(metrics):
+    reference_counts = {key: 0 for key in decorate_refs}
+    for metric, attribute in metrics.items():
+        if metric in decorate_refs:
+            attribute['reference'] = decorate_refs[metric]
+            reference_counts[metric] += 1 # we used this reference
+    for metric,count in reference_counts.items():
+        if count == 0:
+            eprint(f'Warning: Reference not used: {metric}')
+
+
 def main():
     parser = argparse.ArgumentParser(description="Pretty-print OpenMetrics output.")
     parser.add_argument("file", nargs="?", type=argparse.FileType("r"), default=sys.stdin, help="Input file (or stdin if omitted)")
@@ -91,6 +141,7 @@ def main():
     args = parser.parse_args()
     metrics_data = args.file.readlines()
     metrics = get_openmetrics(metrics_data)
+    add_references(metrics)
     dump_metrics(metrics)
 
 if __name__ == "__main__":
