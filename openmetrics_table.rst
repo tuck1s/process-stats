@@ -132,3 +132,4 @@ halon_threads_scripts_pending               Number of pending script executions 
 halon_threads_scripts_rescheduled           Number of rescheduled script executions                                    gauge           id
 halon_threads_scripts_running               Number of threads running scripts executions                               gauge           id
 halon_threads_scripts_scripts               Number of script executions to be started (M:N)                            gauge           id
+=========================================== ========================================================================== ======= ======= ================= ==============================================================================

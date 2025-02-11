@@ -84,6 +84,9 @@ def dump_metrics(metrics):
     for metric, attribute in sorted(metrics.items()):
         print(formatted_help(metric, metric_col_width, attribute, attributes, attributes_col_width))
 
+    # .rst needs a table footer
+    print(formatted_help(header_rows['metric'], metric_col_width, header_rows, attributes, attributes_col_width))
+
 
 # Decorate with documentation references. Update this as required
 decorate_refs = {
